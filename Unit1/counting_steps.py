@@ -8,14 +8,8 @@ def time(n):
     necessary to calculate
     `print countdown(n)`"""
     minimum_steps = 3
-    num_of_loops = 0
-    x = n
-    while n > 0:
-        num_of_loops += 1
-        n -= 5
-    steps = minimum_steps + num_of_loops * 2
-    # YOUR CODE HERE
-    return steps
+    num_of_loops = math.ceil(n/5.0)
+    return minimum_steps + num_of_loops * 2
 
 def countdown(x):
     y = 0
