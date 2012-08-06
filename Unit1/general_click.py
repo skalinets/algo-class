@@ -12,7 +12,7 @@ def count(n):
     # it takes to execute clique
     min_count = 2
     inner_range_count = n
-    inner_print_count = sum(range(n))
+    inner_print_count = n * (n - 1) / 2
     result = min_count + inner_print_count + inner_range_count
     return result
 
