@@ -68,6 +68,7 @@ def is_eulerian_tour(nodes, tour):
 def test():
     nodes = [20, 21, 22, 23, 24, 25]
     tour = create_tour(nodes)
+    print tour
     return is_eulerian_tour(nodes, tour)
 
 
@@ -81,17 +82,12 @@ def test():
 
 def create_tour(nodes):
     # your code here
-    first_path = (nodes[0], nodes[1])
-    return [first_path] if len(nodes) == 2 else [(nodes[0], nodes[2]), first_path, (nodes[1], nodes[2])]
-
+    result = []
+    for i in range(0,len(nodes)-1):
+        result.append((nodes[i], nodes[i + 1]))
+    result.append((nodes[0], nodes[-1]))
+    return result
 
 class Tester(unittest.TestCase):
-    def _test_simple_case(self):
+    def test_simple_case(self):
         self.assertTrue(test())
-
-    def test_should_return_one_path_for_two_nodes(self):
-        self.assertEqual([(1, 2)], create_tour([1, 2]))
-
-    def test_that_two_paths_exist_for_three_nodes(self):
-        self.assertEqual([(1,3), (1,2), (2,3) ], create_tour([1,2,3]))
-
